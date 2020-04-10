@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">DreamCatcher</string>
+    <string name="dream_title_hint">Enter a title for the dream.</string>
+    <string name="dream_title_label">TITLE</string>
+    <string name="dream_details_label">DETAILS</string>
+    <string name="dream_realized">Realized</string>
+    <string name="dream_deferred">Deferred</string>
+    <string name="deferred">Deferred</string>
+    <string name="realized">Realized</string>
+    <string name="details">DETAILS</string>
+    <string name="enter_a_title_for_the_dream">Enter a title for the dream</string>
+    <string name="title">TITLE</string>
+    <string name="dream_revealed">DREAM REVEALED</string>
+    <string name="dream_entry_1">DREAM ENTRY 1</string>
+    <string name="dream_entry_2">DREAM ENTRY 2</string>
+    <string name="dream_entry_3">DREAM ENTRY 3</string>
+    <string name="dream_done">DREAM DONE</string>
+    <string name="default_date">Wed Nov 14 11:56 EST 2018</string>
+    <string name="Revealed">DREAM REVEALED</string>
+    <string name="Realized">DREAM REALIZED</string>
+    <string name="Deferred">DREAM DEFERRED</string>
+</resources>
