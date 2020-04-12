@@ -19,4 +19,9 @@
     <string name="Revealed">DREAM REVEALED</string>
     <string name="Realized">DREAM REALIZED</string>
     <string name="Deferred">DREAM DEFERRED</string>
+    <string name="new_dream">New Dream</string>
+    <string name="all_dreams">All Dreams</string>
+    <string name="active_dreams">Active Dreams</string>
+    <string name="realized_dreams">Realized Dreams</string>
+    <string name="deferred_dreams">Deferred Dreams</string>
 </resources>

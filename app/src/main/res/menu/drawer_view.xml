@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+
+    <item
+        android:id="@+id/nav_all"
+        android:title="@string/all_dreams" />
+
+    <item
+        android:id="@+id/nav_active"
+        android:title="@string/active_dreams" />
+
+    <item
+        android:id="@+id/nav_realized"
+        android:title="@string/realized_dreams" />
+
+    <item
+        android:id="@+id/nav_deferred"
+        android:title="@string/deferred_dreams" />
+    </group>
+</menu>

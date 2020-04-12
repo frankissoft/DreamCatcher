@@ -3,9 +3,7 @@ package edu.vt.cs.cs5254.dreamcatcher
 import android.content.Context
 import android.os.Bundle
 import android.util.Log
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
@@ -14,6 +12,7 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import edu.vt.cs.cs5254.dreamcatcher.database.Dream
+import edu.vt.cs.cs5254.dreamcatcher.database.DreamWithEntries
 import java.util.*
 
 private const val TAG = "DreamListFragment"
@@ -39,6 +38,12 @@ class DreamListFragment : Fragment() {
     override fun onAttach(context: Context) {
         super.onAttach(context)
         callbacks = context as Callbacks?
+    }
+
+    // New
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setHasOptionsMenu(true)
     }
 
     override fun onCreateView(
@@ -70,6 +75,25 @@ class DreamListFragment : Fragment() {
     override fun onDetach() {
         super.onDetach()
         callbacks = null
+    }
+
+    // New
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        inflater.inflate(R.menu.fragment_dream_list, menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.new_dream -> {
+                val dream = Dream()
+                val dreamWithEntries = DreamWithEntries(dream, emptyList())
+                dreamListViewModel.addDream(dreamWithEntries)
+                callbacks?.onDreamSelected(dreamWithEntries.dream.id)
+                true
+            }
+            else -> return super.onOptionsItemSelected(item)
+        }
     }
 
     private fun updateUI(dreams: List<Dream>) {

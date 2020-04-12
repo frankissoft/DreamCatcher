@@ -16,24 +16,25 @@ private const val DATABASE_NAME = "dream_database"
 
 class DreamRepository private constructor(context: Context) {
 
-  private val repopulateRoomDatabaseCallback: RoomDatabase.Callback =
-    object : RoomDatabase.Callback() {
-      override fun onOpen(db: SupportSQLiteDatabase) {
-        super.onOpen(db)
-        Log.d(TAG, "repopulateRoomDatabaseCallback.onOpen")
-        executor.execute {
-          dreamDao.apply {
-            reconstructSampleDatabase()
-          }
-        }
-      }
-    }
+//  private val repopulateRoomDatabaseCallback: RoomDatabase.Callback =
+//    object : RoomDatabase.Callback() {
+//      override fun onOpen(db: SupportSQLiteDatabase) {
+//        super.onOpen(db)
+//        Log.d(TAG, "repopulateRoomDatabaseCallback.onOpen")
+//        executor.execute {
+//          dreamDao.apply {
+//            reconstructSampleDatabase()
+//          }
+//        }
+//      }
+//    }
 
   private val database : DreamDatabase = Room.databaseBuilder(
     context.applicationContext,
     DreamDatabase::class.java,
     DATABASE_NAME
-  ).addCallback(repopulateRoomDatabaseCallback).build()
+  ).build()
+//  ).addCallback(repopulateRoomDatabaseCallback).build()
 
   private val dreamDao = database.dreamDao()
 
@@ -50,7 +51,13 @@ class DreamRepository private constructor(context: Context) {
     }
   }
 
-  fun reconstructSampleDatabase() = dreamDao.reconstructSampleDatabase()
+  fun addDream(dreamWithEntries: DreamWithEntries) {
+    executor.execute {
+      dreamDao.addDreamWithEntries(dreamWithEntries)
+    }
+  }
+
+//  fun reconstructSampleDatabase() = dreamDao.reconstructSampleDatabase()
 
   companion object {
     private const val TAG = "DreamRepository"
