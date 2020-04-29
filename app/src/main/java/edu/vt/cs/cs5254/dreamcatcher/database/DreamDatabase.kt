@@ -4,7 +4,7 @@ import androidx.room.Database
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 
-@Database(entities = [ Dream::class, DreamEntry::class ], version=1)
+@Database(entities = [ Dream::class, DreamEntry::class ], version=1, exportSchema = false)
 @TypeConverters(DreamTypeConverters::class)
 abstract class DreamDatabase : RoomDatabase() {
 

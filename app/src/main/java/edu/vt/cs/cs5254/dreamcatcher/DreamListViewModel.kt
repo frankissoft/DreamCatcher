@@ -9,8 +9,16 @@ class DreamListViewModel : ViewModel() {
     private val dreamRepository = DreamRepository.get()
     val dreamListLiveData = dreamRepository.getDreams()
 
-    fun addDream(dreamWithEntries: DreamWithEntries) {
-        dreamRepository.addDream(dreamWithEntries)
+//    fun addDream(dreamWithEntries: DreamWithEntries) {
+//        dreamRepository.addDream(dreamWithEntries)
+//    }
+
+    fun addDreamWithEntries(dreamWithEntries: DreamWithEntries) {
+        dreamRepository.addDreamWithEntries(dreamWithEntries)
+    }
+
+    fun deleteAllDreams() {
+        dreamRepository.deleteAllDreams()
     }
 
 }

@@ -4,7 +4,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import java.util.*
 
-private const val TAG = "DreamActivity"
+//private const val TAG = "DreamActivity"
+
 class DreamActivity : AppCompatActivity(),
     DreamListFragment.Callbacks {
 
